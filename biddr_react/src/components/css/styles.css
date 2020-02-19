@@ -1,0 +1,21 @@
+h1, h2, h3, p{
+    font-family: 'Sriracha', cursive;
+}
+
+html{
+    padding: 1em;
+}
+body{
+    padding: 2em;
+}
+.title{
+    padding: 3em 0;
+}
+.welcome{
+    font-size: 50px;
+}
+.img-size{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
