@@ -8,12 +8,11 @@ Rails.application.routes.draw do
         # /api/v1...
         resources :auctions do
           resource :bids, only: [:create]
-        # resource :session, only: [:create, :destroy]
         end
-        
+
         resource :session, only: [:create, :destroy]
         #/api/v1/session 
-        resources :users, only: [:create, :update] do
+        resources :users do
           #api/v1/users/current
           get :current, on: :collection 
           #default

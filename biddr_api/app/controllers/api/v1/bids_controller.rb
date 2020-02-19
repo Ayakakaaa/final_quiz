@@ -4,9 +4,8 @@ class Api::V1::BidsController < Api::ApplicationController
     def create 
         auction = Auction.find params[:auction_id]
         new_bid = Bid.new bid_params
-        new_bid.user = current_user || User.first
+        new_bid.user = current_user
         new_bid.auction = auction
-        byebug
         if new_bid.save
             render json: { id: new_bid.id }
         else

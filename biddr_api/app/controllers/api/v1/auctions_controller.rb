@@ -3,11 +3,9 @@ class Api::V1::AuctionsController < Api::ApplicationController
     before_action :find_auction, only: [:show, :edit, :update, :destroy]
 
     def create
-        byebug
+
         auction = Auction.new auction_params
-        user = User.first
-        # auction.user = current_user || user
-        auction.user = user
+        auction.user = current_user
         if auction.save
             render json: { id: auction.id }
         else 
@@ -28,8 +26,7 @@ class Api::V1::AuctionsController < Api::ApplicationController
     end
 
     def show        
-        render json: @auction
-        # , include: [:author, {answers: [:author]}]
+        render json: @auction, include: [:author, {bids: [:author]}]
     end
 
     def edit
